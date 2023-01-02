@@ -45,3 +45,22 @@ fn variables() {
     let array = [3; 5]; // 相当于 [3, 3, 3, 3, 3]
     println!("{}", array[2]);
 }
+
+fn shadowing() {
+    let x = 5;
+    let x = x + 1;
+
+    {
+        let x = x * 2;
+        // 12 = (5 + 1) * 2
+        println!("The value of x in the inner scope is: {}", x);
+    }
+
+    // 6 = 5 + 1
+    println!("The value of x is: {}", x);
+
+    // 使用 Shadowing 会创建一个新变量，可以改变值的类型，并复用名字
+    let spaces = "      ";
+    let spaces = spaces.len();
+    println!("The spaces String length is: {}", spaces);
+}
