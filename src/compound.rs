@@ -1,81 +1,22 @@
-fn main() {
-    println!("Hello, world!");
-    another_function(5, 6.4); // argument
+fn tuple() {
+    let tup = (500, 6.4, 1);
+    // destructuring 解构
+    let (x, y, z) = tup;
+    println!("The value of y is: {}", y);
 
-    // expression
-    let x = 5;
-    println!("The value of x is {}", x);
-    let y = {
-        let x = 3;
-        x + 3
-    };
-    println!("The value of y is {}", y);
-
-    println!("The return of function is {}", plus_five(6));
-
-    if_number_gt5(6);
-
-    use_loop();
-
-    use_while();
-
-    use_for();
+    let x: (i32, f64, u8) = (500, 6.4, 1);
+    // 使用 . 加索引访问元组中的信息
+    let five_hundred = x.0;
+    let six_point_four = x.1;
+    let one = x.2;
+    println!("The values are: {}, {}, {}", five_hundred, six_point_four, one);
 }
 
-fn another_function(x: i32, y: f64) {
-    println!("Another Function!");
-    println!("The value of x is {}, y is {}", x, y); // parameter
-}
-
-fn plus_five(x: i32) -> i32 {
-    5 + x
-}
-
-fn if_number_gt5(x: i32) {
-    if x > 5 {
-        println!("condition was true");
-    } else {
-        println!("condition was false");
-    }
-
-    let condition = true;
-    let number = if condition { 5 } else { 6 };
-    println!("The value of number is {}", number);
-}
-
-fn use_loop() {
-    let mut counter = 0;
-
-    let result = loop {
-        counter += 1;
-        if counter == 10 {
-            break counter * 2
-        }
-    };
-
-    println!("The result is {}", result);
-}
-
-fn use_while() {
-    let mut number = 3;
-    while number != 0 {
-        println!("{}!", number);
-
-        number = number - 1
-    }
-
-    println!("LIFTOFF!")
-}
-
-fn use_for() {
-    let array = [10, 20, 30, 40, 50];
-
-    for element in array.iter() {
-        println!("The value is {}", element)
-    }
-
-    for number in (1..4).rev() {
-        println!("{}!", number);
-    }
-    println!("LIFTOFF!");
+fn array() {
+    // 声明数组中的数据类型和元素数量
+    let a: [i32; 5] = [1, 2, 3, 4, 5];
+    println!("The first value of array is: {}", a[0]);
+    println!("The second value of array is: {}", a[1]);
+    // 数组 a 中有 5 个元素，每个元素都是 3
+    let a = [3; 5];
 }
