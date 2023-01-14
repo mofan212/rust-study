@@ -4,6 +4,9 @@ mod front_of_house {
     }
 }
 
+// 重导出
+pub use crate::front_of_house::hosting;
+
 pub fn eat_at_restaurant() {
     // 绝对路径
     crate::front_of_house::hosting::add_to_waitlist();
@@ -23,6 +26,10 @@ pub fn eat_at_restaurant() {
 
     let order1 = back_of_house::Appetizer::Soup;
     let order2 = back_of_house::Appetizer::Salad;
+
+    // 使用 use
+    hosting::add_to_waitlist();
+    hosting::add_to_waitlist();
 }
 
 fn serve_order() {}
@@ -57,3 +64,14 @@ mod back_of_house {
         Salad,
     }
 }
+
+use std::collections::HashMap;
+
+fn use_hashMap() {
+    let mut map = HashMap::new();
+    map.insert(1, 2);
+}
+
+// 使用 as 关键字提供新的名称
+use std::fmt::Result;
+use std::io::Result as IoResult;
