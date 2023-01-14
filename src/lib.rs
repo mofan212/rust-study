@@ -1,18 +1,14 @@
-mod front_of_house {
-    pub mod hosting {
-        pub fn add_to_waitlist() {}
-    }
-}
+mod module;
 
 // 重导出
-pub use crate::front_of_house::hosting;
+pub use crate::module::front_of_house::hosting;
 
 pub fn eat_at_restaurant() {
     // 绝对路径
-    crate::front_of_house::hosting::add_to_waitlist();
+    crate::module::front_of_house::hosting::add_to_waitlist();
 
     // 相对路径
-    front_of_house::hosting::add_to_waitlist();
+    module::front_of_house::hosting::add_to_waitlist();
 
     // 在夏天订购一个黑麦土司作为早餐
     let mut meal = back_of_house::Breakfast::summer("Rye");
